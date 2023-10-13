@@ -1,0 +1,44 @@
+<p>login works!</p>
+<div class="container">
+    <div class="border">
+        <h4>LOGIN</h4>
+        <hr>
+        <form [formGroup]="loginForm" (ngSubmit)="loginCredentials()">
+            <!--UserName-->
+            <div class="form-group">
+                <input type="text" placeholder="Enter User Name"
+                formControlName="userName" class="form-control">
+            </div>
+            <!--Validation-->
+            <div class=validation-error *ngIf="isSubmitted && formControls.userName.errors">
+                <div *ngIf="formControls.userName.errors.required">
+                    Username is Invalid or Required
+                </div>
+            </div>
+            <br>
+             <!--Password-->
+             <div class="form-group">
+                <input type="password" placeholder="Enter Password"
+                formControlName="password" class="form-control">
+            </div>
+            <div class=validation-error *ngIf="isSubmitted && formControls.password.errors">
+                <div *ngIf="formControls.password.errors.required">
+                     Password is Invalid
+                </div>
+            </div>
+
+            <!--Submit button-->
+            <div>
+                <button type="submit" class="btn btn-lg btn-primary form-control">Submit</button>
+            </div>
+
+            <div>
+                <div class=validation-error *ngIf="error">
+                    {{error}}
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
